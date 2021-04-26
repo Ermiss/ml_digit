@@ -43,7 +43,7 @@ x = pd.DataFrame(x)
 #x_test = x_test - x_test.mean()
 
 epoch = 30
-splits = 2
+splits = 5
 kfold = KFold(n_splits=splits, shuffle=True, random_state=2)
 
 loss = []
