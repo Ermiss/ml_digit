@@ -45,8 +45,8 @@ for i, (train, test) in enumerate(kfold.split(x)):
     model.add(tf.keras.layers.Dense(units=20, activation=tf.nn.relu, kernel_regularizer=regularizers.l2(0.1)))
     model.add(tf.keras.layers.Dense(units=10, activation=tf.nn.softmax))
     #model.compile(optimizer='SGD', loss='mean_squared_error', metrics=['accuracy'])
-    #model.compile(optimizer='SGD', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.05, momentum=0.6), loss='mean_squared_error', metrics=['accuracy'])
+    model.compile(optimizer='SGD', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    #model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.05, momentum=0.6), loss='mean_squared_error', metrics=['accuracy'])
 
     #callbacks = [EarlyStopping(monitor='val_accuracy', patience=3)]
     history = model.fit(x.iloc[train], y.iloc[train], epochs=epoch, validation_data=(x.iloc[test], y.iloc[test]))
